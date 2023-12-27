@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_migrate import Migrate
 from flask_jwt_extended import JWTManager
-from flask_smorest import Api
 from .views import healthcheck_blueprint, user_blueprint, category_blueprint, record_blueprint, currency_blueprint
 from .db import db
 
@@ -11,7 +10,6 @@ def create_app():
     app.config.from_pyfile('config.py', silent=True)
 
     db.init_app(app)
-    api = Api(app)
 
     jwt = JWTManager(app)
 
