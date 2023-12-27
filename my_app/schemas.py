@@ -2,8 +2,9 @@ from marshmallow import Schema, fields
 
 class UserSchema(Schema):
     id = fields.UUID(dump_only=True)
-    name = fields.String(required=True)
+    username = fields.String(required=True)
     default_currency_id = fields.String()
+    password = fields.String(required=True)
 
 class CategorySchema(Schema):
     id = fields.UUID(dump_only=True)

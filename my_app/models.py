@@ -12,8 +12,9 @@ class UserModel(db.Model):
     __tablename__ = 'user'
 
     id = db.Column(db.String, primary_key=True)
-    name = db.Column(db.String(128), unique=True, nullable=False)
+    username = db.Column(db.String(128), unique=True, nullable=False)
     default_currency_id = db.Column(db.String, db.ForeignKey('currency.id'), nullable=True)
+    password = db.Column(db.String(128), nullable=False)
 
     currency = db.relationship('CurrencyModel', back_populates = 'user')
     record = db.relationship('RecordModel', back_populates = 'user')
